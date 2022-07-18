@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client"
 
-//all pokemons
+//query all pokemons with default information
 const GET_POKEMONS = gql`
     query allPokemons($limit: Int!) {
         allPokemon(limit: $limit) {

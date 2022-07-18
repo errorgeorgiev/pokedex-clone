@@ -1,39 +1,17 @@
-import { gql, useQuery } from "@apollo/client";
-import { CircularProgress, Alert, AlertIcon, Container, Wrap, VStack, Image, List, ListItem } from "@chakra-ui/react";
+import { CircularProgress, Box, Alert, AlertIcon, Container, Wrap, VStack, Image, List, ListItem } from "@chakra-ui/react";
+import { usePokemon } from "./hooks/usePokemon";
 import { useParams } from "react-router-dom";
 
-//get preselected pokemon
-const GET_PREDIFINED_POKEMON = gql`
-    query PredefinedPokemon($id: Int!) {
-        pokemon(id: $id) {
-            id
-            name
-            sprites {
-                front_default
-            }
-            abilities {
-                name
-                effect
-                description
-            }
-        }
-    }
-`;
-
 export default function Pokemon() {
-
     const {id} = useParams(); //should be dynamic return undefined
-    //console.log( {answer : postId} )
 
-    const { loading, error, data } = useQuery(GET_PREDIFINED_POKEMON, {
-        variables: {
-            id: id //should be Int, not Number
-        }
-    })
+    const { loading, error, data } = usePokemon(id); //should be dynamic
 
     //TODO: center circularprogress
     if(loading) return (
-        <CircularProgress size='100px' isIndeterminate color='green.300'/>
+        <Container textAlign='center' verticalAlign='middle'>
+            <CircularProgress size='100px' isIndeterminate color='green.300'/> 
+        </Container>
         ) 
     
     if(error) return (
@@ -47,22 +25,28 @@ export default function Pokemon() {
     //console.log({loading, error, data});
     
     //console.log({ data: data.pokemon.sprites.front_default})
-    //add pokemon is unclicklable, onClick cshouldnt be in box
+    //add pokemon is unclicklable, onClick shouldnt be in box
     return(
-        <Container>
-            <Wrap>
+        //maybe remove verticalAlign
+        <Container paddingTop='100px' h='1000px' maxW='100%' maxH='100%' bg='orange' centerContent verticalAlign='middle'> 
+            <Wrap verticalAlign='middle' borderWidth='1px' borderColor='black' borderRadius='40px'bg='tomato' w='500px'>
                 <VStack>
-                    <Image src={data.pokemon.sprites.front_default}/>
+                    <Image w='250px' h='250px' src={data.pokemon.sprites.front_default}/>
+                    <Box><b>Abilities:</b></Box>
                     <List>
                         {data.pokemon.abilities.map(ability => {
                             console.log(ability)
                             return (
                                 //create card component that holds abilities + picture + maybe pokemon name
-                                <ListItem key={ability.id} alignItems='center' display='flex'>
-                                    {ability.name}
-                                    {ability.effect}
-                                    {ability.description}
-                                </ListItem>
+                                <Container key={ability.id} centerContent>
+                                    <Box><b>{ability.name}:</b></Box>
+                                    <ListItem alignItems='center' display='flex'>
+                                        <Box alignContent='center' textAlign='center'> 
+                                            {ability.effect}
+                                            {ability.description}
+                                        </Box>
+                                    </ListItem>
+                                </Container>
                             )
                         })}
                     </List>

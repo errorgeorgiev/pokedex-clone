@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client"
 import { ChakraProvider } from "@chakra-ui/react";
-import { BrowserRouter } from 'react-router-dom'; //installed
 
 //Graphql API client
 const client = new ApolloClient({

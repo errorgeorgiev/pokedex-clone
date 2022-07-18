@@ -3,7 +3,6 @@ import PokemonsList from "./PokemonsList";
 import Pokemon from './Pokemon';
 import Fight from './Fight';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { Alert, AlertIcon } from "@chakra-ui/react";
 
 function App() {
   return (
@@ -11,8 +10,9 @@ function App() {
       <div className="App">
         <Routes>
           <Route path = "/" element={<PokemonsList/>} />
-          <Route path = "/pokemon/:id" element={<Pokemon/>} />
+          <Route path = "/:id" element={<Pokemon/>} />
           <Route path = "/fight" element={<Fight/>} />
+          <Route path = "*" render={() => <div>404</div>}/>
         </Routes>
       </div>
     </BrowserRouter>
@@ -20,13 +20,3 @@ function App() {
 }
 
 export default App;
-
-//before version
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <PokemonsList/>
-//     </div>
-//   );
-// }
