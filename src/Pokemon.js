@@ -35,7 +35,7 @@ export default function Pokemon() {
                     <Box><b>Abilities:</b></Box>
                     <List>
                         {data.pokemon.abilities.map(ability => {
-                            console.log(ability)
+                            //console.log(ability)
                             return (
                                 //create card component that holds abilities + picture + maybe pokemon name
                                 <Container key={ability.id} centerContent>
