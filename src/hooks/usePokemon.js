@@ -10,6 +10,7 @@ const GET_PREDIFINED_POKEMON = gql`
                 front_default
             }
             abilities {
+                id
                 name
                 effect
                 description
@@ -19,7 +20,6 @@ const GET_PREDIFINED_POKEMON = gql`
 `;
 
 export const usePokemon = (id) => {
-    console.log({ danni: id })
     const integerId = parseInt(id)
 
     const { loading, error, data } = useQuery(GET_PREDIFINED_POKEMON, {
