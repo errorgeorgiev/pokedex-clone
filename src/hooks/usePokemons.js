@@ -9,6 +9,14 @@ const GET_POKEMONS = gql`
             sprites {
                 front_default
             }
+            base_stats {
+                hp
+                attack
+                defense
+                special_attack
+                special_defense
+                speed
+             }
         }
     }
 `;

@@ -20,15 +20,12 @@ const GET_RANDOM_POKEMON = gql`
         }
     }
 `;
-
-//accepts random id
+//accepts random generated id
 export const useFight = (id) => {
-    //const {id} = useParams(); //should be dynamic return undefined
-    //console.log( {answer : postId} )
     
     const { loading, error, data } = useQuery(GET_RANDOM_POKEMON, {
         variables: {
-            id, //should be Int
+            id,
         }
     })
     

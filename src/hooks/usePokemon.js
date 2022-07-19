@@ -24,7 +24,7 @@ export const usePokemon = (id) => {
 
     const { loading, error, data } = useQuery(GET_PREDIFINED_POKEMON, {
         variables: {
-            id:integerId //should be Int
+            id:integerId 
         }
     })
 
