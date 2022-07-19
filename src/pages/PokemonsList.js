@@ -1,8 +1,8 @@
 import { VStack, Image, Box, Alert, AlertIcon, Wrap, Container, CircularProgress, Button } from '@chakra-ui/react';
-import { usePokemons } from './hooks/usePokemons';
+import { usePokemons } from '../hooks/usePokemons';
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from 'react';
-import { CustomButton } from './CustomButton';
+import { CustomButton } from '../components/CustomButton';
 
 
 //currently limited to 54 pokemons, can change that in usePokemons.js

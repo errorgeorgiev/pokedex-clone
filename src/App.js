@@ -1,8 +1,8 @@
 import React from 'react';
-import PokemonsList from "./PokemonsList";
-import Pokemon from './Pokemon';
-import Fight from './Fight';
-import CustomButton from './CustomButton';
+import PokemonsList from "./pages/PokemonsList";
+import Pokemon from './pages/Pokemon';
+import Fight from './pages/Fight';
+import CustomButton from './components/CustomButton';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 function App() {

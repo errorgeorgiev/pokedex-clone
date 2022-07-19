@@ -1,5 +1,5 @@
 import { CircularProgress, Box, Alert, AlertIcon, Container, Wrap, VStack, Image, List, ListItem } from "@chakra-ui/react";
-import { usePokemon } from "./hooks/usePokemon";
+import { usePokemon } from "../hooks/usePokemon";
 import { useParams } from "react-router-dom";
 
 export default function Pokemon() {

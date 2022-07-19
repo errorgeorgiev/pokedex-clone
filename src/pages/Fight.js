@@ -1,5 +1,5 @@
 import { Wrap, VStack, Image, Box, Container, CircularProgress, Alert, AlertIcon } from "@chakra-ui/react";
-import { useFight } from "./hooks/useFight";
+import { useFight } from "../hooks/useFight";
 import { useLocation } from "react-router-dom";
 
 
