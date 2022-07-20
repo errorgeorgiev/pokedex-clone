@@ -35,14 +35,6 @@ export default function Fight() {
     //-- main logic --
 
     //very simple sum algorithm
-    const calculateScoreRandom = (randomEnemyPokemon) => {
-        let sum = 0;
-        sum = randomEnemyPokemon.pokemon.base_stats.hp + randomEnemyPokemon.pokemon.base_stats.attack + 
-        randomEnemyPokemon.pokemon.base_stats.defense + randomEnemyPokemon.pokemon.base_stats.speed;
-
-        return sum;
-    }
-
     const calculateScorePredefined = (predefinedPokemon) => {
         const sum = predefinedPokemon.base_stats.hp + predefinedPokemon.base_stats.attack + 
         predefinedPokemon.base_stats.defense + predefinedPokemon.base_stats.speed;
