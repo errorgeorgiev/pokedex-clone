@@ -50,7 +50,7 @@ export default function Fight() {
         return sum;
     }
 
-    const alg = (selectedPokemons, randomEnemyPokemon) => {
+    const alg = (selectedPokemons) => {
         var i;
         var max = 0;
         for(i=0; i<selectedPokemons.length; i++){
@@ -59,12 +59,7 @@ export default function Fight() {
                 max = current;
             }
         }
-        let selectedMax = max;
-        let randomMax = calculateScoreRandom(randomEnemyPokemon);
-        if(selectedMax >= randomMax) {
-            return selectedMax;
-        }
-        return randomMax;
+        return max;
     }   
 
     const creteWinnerObject = (maxSum,selectedPokemons) => {
@@ -76,7 +71,7 @@ export default function Fight() {
         }
     }
 
-    const winner = creteWinnerObject(alg(selectedPokemons, randomEnemyPokemon), selectedPokemons);
+    const winner = creteWinnerObject(alg(selectedPokemons), selectedPokemons);
 
     
 
